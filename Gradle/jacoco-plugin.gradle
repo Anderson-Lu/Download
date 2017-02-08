@@ -1,0 +1,17 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+    reportsDir = file("$buildDir/jacoco")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoTestReport"
+    }
+}
+
+#Run gradle jacocoTestReport to generate a jacoco report.
+
