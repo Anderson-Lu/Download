@@ -1,8 +1,25 @@
 #### Install Chrome on Ubuntu
 
+=Google Chrome isn't in the repositories - however, Chromium is.
+Google Chrome is only available for 64-bit Linux. I've included directions for 64 below.
+To install Google Chrome, run the following:
+
 ```shell
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 sudo apt-get update
 sudo apt-get install google-chrome-stable
 ```
+
+If error messages pop up after running the command sudo dpkg -i google-chrome\*.deb then run the command :
+```shell
+sudo apt-get install -f
+```
+and then re-run the previous command. The error messages mentioned should include something similar to:
+```shell
+google-chrome-stable depends on [lib-example]; however; Package [lib-example] is not installed.
+```
+
+This installs a needed library for Google Chrome, then downloads the latest version of Chrome to a temporary directory and installs it. Run google-chrome to start the browser.
+
+During the installation a PPA is added to your system so that Google Chrome receives the latest updates whenever you check for system updates.
