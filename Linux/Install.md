@@ -36,3 +36,26 @@ Use command below to solve this problem for npm 3.+
 ```shell
 $ npm init -y
 ```
+
+#### Install deb file on shell
+
+```shell
+$ sudo dpkg -i xxx.deb  
+```
+Obviously, to uninstall a software, you can use:
+```shell
+$ sudo dpkg -r xxx.deb
+```
+And to re-configure a package, you can use:
+```shell
+$ sudo dpkg-reconfigure PACKAGE_NAME
+```
+This is useful when you need to reconfigure something related to said package. Some useful examples it the keyboard-configuration when you want to enable the `Ctrl+Alt+Backspace` in order to reset the X server, so you would the following:
+```shell
+sudo dpkg-reconfigure keyboard-configuration
+```
+Another great one is when you need to set the Timezone for a server or your local testing computer, so you use use the tzdata package:
+```shell
+sudo dpkg-reconfigure tzdata
+```
+
